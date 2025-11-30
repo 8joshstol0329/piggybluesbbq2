@@ -1,0 +1,256 @@
+/* ======================================= */
+/* Custom Media Queries for Specific Breakpoints */
+/* ======================================= */
+
+/* --- Mobile View (up to Bootstrap's Small breakpoint, e.g., < 576px, or your 320px for extra small) --- */
+/* Targeting very small phones */
+@media (max-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+     
+    .social-icon i {
+        font-size: 2em;;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+      .navbar-collapse{ /* Ensures smooth collapsing behavior */
+        transition: max-height 0.3s ease-in-out; /* Smooth transition for height */
+        overflow: hidden; /* Ensure content is hidden when collapsed */
+        
+      }
+      .navbar-collapse.show{
+        max-height: 500px; /* Adjust based on content height */
+        background-color: var(--primary); /* Optional: change background on expand */
+        border-radius: var(--radius);
+        padding: 10px 20px;
+        margin-top: 10px;
+
+      }
+      .navbar-collapse:hover{
+        max-height: 500px; /* Adjust based on content height */
+        color: red;
+      }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+.social-media-section {
+        padding-top: 2rem !important; /* py-4 equivalent */
+        padding-bottom: 2rem !important; /* py-4 equivalent */
+    }
+    .btn-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .social-links-container a {
+    padding: 0.5rem; /* Add some padding to increase tap area */
+    display: inline-flex; /* Ensures padding works as expected and keeps items in a row */
+    align-items: center; /* Centers icon within the padding */
+    justify-content: center;
+    border-radius: 50%; /* Optional: for a circular tap area visual */
+    /* Add a subtle hover effect if you want */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.social-links-container a:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+}
+
+    .navbar-brand img {
+        height: 35px; /* Slightly smaller logo for very small screens */
+        /* It's also good to ensure it doesn't become too wide on very narrow screens */
+        max-width: 120px; /* Added for extra safety on tiny screens */
+    }
+
+    .main-content-wrapper {
+        padding: 20px 10px;
+    }
+
+    .features, .specials, .testimonials {
+        padding: 30px 15px;
+    }
+
+    .card {
+        max-width: 280px; /* Limit card width to prevent overflow on very small screens */
+        margin: 0 auto; /* Shorthand for centering block elements */
+    }
+}
+
+
+/* --- Tablet / Medium Mobile View (from 321px up to Bootstrap's Large breakpoint - 991.98px) --- */
+/* This covers most phones in landscape and tablets */
+@media (min-width: 321px) and (max-width: 991.98px) { /* Changed max-width to Bootstrap's lg-breakpoint-1px */
+    body {
+        font-size: 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+       
+     .social-icon i{
+        font-size: 2.5em;
+     }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .btn-group {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .navbar-brand img {
+        height: 40px; /* Standard logo height */
+        max-width: 150px; /* Ensuring it's not too wide */
+    }
+
+    /* Keep Bootstrap's navbar collapse behavior here.
+       Do NOT set .navbar-nav to flex-direction: row; or width: 100%; here.
+       It should remain column-stacked for the collapsed menu. */
+
+    .features {
+        flex-direction: row; /* Keep features in a row, wrapping if needed */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px; /* Re-apply default gap if needed, or adjust */
+    }
+
+    .feature {
+        flex: 1 1 300px; /* Allow features to stretch a bit more, for 2 columns */
+        max-width: 48%; /* Adjust for 2 columns with gap, e.g., (100% - gap)/2 */
+    }
+
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    blockquote {
+        font-size: 1.1em;
+    }
+}
+
+
+/* --- Desktop View (from Bootstrap's Large breakpoint - 992px and up) --- */
+@media (min-width: 992px) { /* Changed min-width to Bootstrap's lg breakpoint */
+    body {
+        font-size: 17px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    .pre-header-text {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+
+    }
+    #trending-products-wrapper:first-of-type .container {
+        font-size: 1.1em;
+        max-width: 900px;
+        margin: 0 auto 30px;
+    }
+       #desktop-hero img{
+        max-height: 500px;
+        width: 100%;
+        display: flex;
+        padding: 0%;
+        align-items: center;
+        object-fit: contain;
+        box-shadow: none;
+
+       }
+       #product-grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .social-icon i {
+        font-size: 3em;
+    }
+    /* Bootstrap's .navbar-expand-lg will handle these by default.
+       No custom .navbar-nav styles needed here for flex-direction: row, justify-content.
+       If you use ms-auto on your UL, it will push items right. */
+    /* .navbar-nav {
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+    } */
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .main-content-wrapper {
+        padding: 60px 20px;
+    }
+
+    .features {
+        /* If you want 3 columns (or more) that don't wrap, use `display: grid` or
+           adjust flex-basis / max-width for flex. */
+        display: flex; /* Assuming it's already flex, ensure it stays flex */
+        flex-direction: row; /* Keep features in a row */
+        flex-wrap: wrap; /* Allow wrapping for more flexibility if needed */
+        justify-content: space-between;
+        gap: 30px; /* Ensure gap is defined */
+    }
+
+    .feature {
+        /* For 3 columns: (100% - 2*gap) / 3 */
+        flex: 1 1 calc(33.33% - 20px); /* Adjust '20px' based on your gap, e.g., (30px/3)*2 */
+        max-width: calc(33.33% - 20px); /* Adjust to match flex-basis */
+    }
+    /* Alternative for .features and .feature using Grid: */
+    /* .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    .feature {
+        max-width: none; // Let grid handle width
+    } */
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr); /* Force 3 columns for cards on large screens */
+    }
+
+    blockquote {
+        font-size: 1.3em;
+    }
+}
+
+/* --- Extra Large Desktop View (beyond 1200px) --- */
+/* Leveraging Bootstrap's own `xl` and `xxl` breakpoints for consistency */
+@media (min-width: 1200px) { /* Bootstrap's XL breakpoint */
+    .main-content-wrapper {
+        max-width: 1200px; /* This is default Bootstrap container width at XL */
+        padding: 80px 40px;
+    }
+}
+
+@media (min-width: 1400px) { /* Bootstrap's XXL breakpoint */
+    .main-content-wrapper {
+        max-width: 1400px; /* Allow wider content for very large screens */
+        padding: 80px 40px;
+    }
+}
+
+@media (min-width: 1920px) { /* Specific styles for full HD and beyond */
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media (min-width: 2561px) {
+    /* Styles for screens larger than 2560px */
+    .main-content-wrapper {
+        max-width: 1600px; /* Example: even wider, or stick to 1400px */
+    }
+    /* You might want to cap some font sizes or element widths here if they get too big */
+}
